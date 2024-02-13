@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be My Valentine?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding-top: 100px;
+    }
+    #question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    #yes {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+    #no {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      position: absolute;
+    }
+    #message {
+      font-size: 20px;
+      margin-top: 50px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="question">
+    Ms. Syeda Sahaab Hashmi, would you be my valentine?
+  </div>
+
+  <button id="yes" class="btn" onclick="showAnswer('yes')">Yes</button>
+  <button id="no" class="btn" onmouseover="moveNoButton()">No</button>
+
+  <div id="message">
+    The only right answer
+  </div>
+
+  <script>
+    function showAnswer(choice) {
+      if (choice === 'yes') {
+        document.getElementById('message').style.display = 'block';
+        document.body.innerHTML = "<h1>The only right answer!</h1>";
+      }
+    }
+
+    function moveNoButton() {
+      var button = document.getElementById("no");
+      var newX = Math.random() * (window.innerWidth - button.offsetWidth);
+      var newY = Math.random() * (window.innerHeight - button.offsetHeight);
+      button.style.left = newX + "px";
+      button.style.top = newY + "px";
+    }
+
+    document.getElementById("no").addEventListener("mouseover", function() {
+      moveNoButton();
+    });
+  </script>
+
+</body>
+</html>
